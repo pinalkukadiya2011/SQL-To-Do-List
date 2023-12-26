@@ -1,0 +1,48 @@
+
+<h1 align="center">ADD TASK</h1>
+<%- include('header.ejs') %>
+<form method="post" >
+    <table align="center" style="background-color: rgb(135, 222, 225); padding: 20px; border: 3px solid #000; border-radius: 10px;" >
+       
+
+        <tr>
+            <td>SELECT USER:</td>
+            <td><select name="user_id">
+                <option value="null" disabled selected>Select User</option>
+                <% results.forEach(function(user){ %>
+                    <option value="<%= user.u_id %>"><%= user.name %></option>
+                <% }) %>
+            </select> </td>
+        </tr> 
+        <tr>
+            <td>TASK</td>
+            <td><input type="text" name="task_name" placeholder="ENTER THE TASK"/> </td>
+        </tr> 
+       <tr>
+       
+       </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit"/> </td>
+          
+        </tr>
+    </table>
+</form>
+
+
+<table border="1" align="center" >
+    <th>NO</th>
+    <th>TASKNAME</th>
+    <th>STATUS</th>
+    <th>UPDATE  STATUS</th>
+    <% select_data.forEach(function(task_data){ %>
+        <tr>
+           <td><%= task_data.t_id %></td>
+           <td><%= task_data.task_name %></td>
+           <td><% if(task_data.status==0) { %> pending <% } else if(task_data.status==1) { %> running <% } else if(task_data.status==2) { %> completed <% }  else if(task_data.status==3) { %> Decline <% } %></td>
+           <td><a href="/update/<%= task_data.t_id%>">UPDATE</a></td>
+        </tr>
+
+        
+     <% }) %>
+</table>

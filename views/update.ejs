@@ -1,0 +1,22 @@
+<h1 align="center">UPDATE THE STATUS</h1>
+<form method="post" >
+<table align="center">
+    <h1>Task Details</h1>
+    <label for="status">Status:</label>
+      
+
+  <% results.forEach(function(task_data){ %>
+
+    <select  name="status">
+        <option value="null" disabled selected>Select User</option>
+            <option value="0" <% if(task_data.status==0) { %> selected <% }%> > Pending</option>
+            <option value="1" <% if(task_data.status==1) { %> selected <% }%> >Running</option>
+            <option value="2" <% if(task_data.status==2) { %> selected <% }%> >Completed</option>
+            <option value="3" <% if(task_data.status==3) { %> selected <% }%> >Decline</option>
+    </select>
+       <input type="submit" name="submit"/>
+  <% }) %>
+      </table>
+    </form>
+
+

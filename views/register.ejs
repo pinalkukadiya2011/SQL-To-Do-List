@@ -1,0 +1,48 @@
+<h2 align="center">USER REGISTER</h2>
+<%- include('header.ejs') %>
+<form method="post" >
+    <table  align="center" style="background-color: rgb(135, 222, 225); padding: 20px; border: 3px solid #000; border-radius: 10px;">
+         <tr>
+            <td>NAME</td>
+            <td><input type="text" name="name" placeholder="ENTER THE NAME"/> </td>
+        </tr> 
+        <tr>
+            <td>EMAIL</td>
+            <td><input type="email" name="email" placeholder="ENTER THE EMAIL"/> </td>
+        </tr> 
+        <tr> 
+            <td>PASSWORD</td>
+                <td><input type="password" name="password" placeholder="ENTER THE PASSWORD"/> </td>
+        </tr>
+        <tr>
+            <td></td>+
+            <td><input type="submit" name="submit"/> </td>
+            
+        </tr>
+    </table>
+</form>
+<table border="1" align="center" >
+    <tr>
+        <th>USER ID</th>
+        <th>USER NAME</th>
+        <th>EMAIL</th>
+        <th>PASSWORD</th>
+        <th>UPDATE THE USER</th>
+        <th>DELETE THE USER</th>
+    </tr>
+<% results.forEach(function(user1) { %>
+ 
+    <tr>
+       <td><%= user1.u_id%></td>
+      <td><%= user1.name%></td>
+      <td><%= user1.email%></td>
+      <td><%= user1.password%></td>
+      <td><a href="/update_user/<%= user1.u_id%>">UPDATE</a></td>
+      <td><a href="/delete_user/<%= user1.u_id%>">DELETE</a></td>
+    </tr>
+
+
+
+<%  }) %>
+</table>
+

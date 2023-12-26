@@ -1,0 +1,20 @@
+<h1 align="center">USER DASHBOARD</h1>
+
+<h4 align="center"><a href="/" style="text-decoration: none;  background-color: cadetblue; border: 3px solid #000; padding: 10px 20px; color:#fff;"  type="btn">LOG OUT</a></h4>
+
+<table border="1" align="center">
+    <th>NO</th>
+    <th>TASKNAME</th>
+    <th>STATUS</th>
+    <th>UPDATE STATUS</th>
+    <% results.forEach(function(task_data){ %>
+        <tr>
+           <td><%= task_data.t_id %></td>
+           <td><%= task_data.task_name %></td>
+           <td><% if(task_data.status==0) { %> pending <% } else if(task_data.status==1) { %> running <% } else if(task_data.status==2) { %> completed <% }  else if(task_data.status==3) { %> Decline <% } %></td>
+           <td><a href="/update/<%= task_data.t_id%>">UPDATE </a></td>
+        </tr>
+        
+     <% }) %>
+</table>
+    
